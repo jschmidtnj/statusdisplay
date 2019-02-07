@@ -4,7 +4,8 @@
       <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
       <b-collapse is-nav id="nav_dropdown_collapse">
         <b-navbar-nav>
-          <b-nav-item href="/">Home</b-nav-item>
+          <!-- <b-nav-item href="/">Home</b-nav-item> -->
+          <b-nav-item class="title">Link Status</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -18,5 +19,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .title {
+    text-align: center;
+  }
 </style>

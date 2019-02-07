@@ -29,7 +29,6 @@ export default Vue.extend({
       if (this.logmessages.length > config.numberElements) {
         this.logmessages.shift();
       }
-      console.log(document.body.clientHeight);
       function pageScroll() {
         window.scrollTo(0, document.body.scrollHeight);
         setTimeout(pageScroll, 1);
