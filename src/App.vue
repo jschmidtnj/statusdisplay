@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <navbar/>
-    <br>
-    <br>
-    <img src="./assets/logo.png">
-    <br>
-    <br>
     <router-view/>
     <br>
     <br>
@@ -14,6 +9,8 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+
+console.log(document.body.clientHeight);
 
 export default {
   name: 'App',
