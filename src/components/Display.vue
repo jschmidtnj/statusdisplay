@@ -23,6 +23,7 @@ export default Vue.extend({
     const url = config.websocketurl;
     const connection = new WebSocket(url);
     let tester = false;
+    // let happen = true;
     connection.onmessage = (event) => {
       // function scroller() {
       // }
@@ -35,7 +36,12 @@ export default Vue.extend({
       console.log(this.logmessages);
       if (this.logmessages.length > config.numberElements) {
         this.logmessages.shift();
+        // happen = false;
       }
+      // const num = this.logmessages.length;
+
+      console.log('Number of Comments Length:');
+      console.log(this.logmessages.length);
 
       // function pageScroll() {
       //   window.scrollTo(0, document.body.scrollHeight);
@@ -66,16 +72,37 @@ export default Vue.extend({
       } else {
         console.log('Would NOT Scroll');
         tester = false;
-        console.log(tester);
+        // console.log(tester);
       }
+
+      console.log('Scroll Height:');
+      console.log(document.body.scrollHeight);
 
       if (tester) {
         console.log(tester);
         // eslint-disable-next-line
         function pageScroll() {
+          // if (num === config.numberElements) {
+          //   if (happen) {
+          //     // document.getElementById('app').scrollTop
+          //     // = document.getElementById('app').scrollHeight;
+          //     window.scrollTo(0, (document.body.scrollHeight));
+          //     console.log('Over Fifty. On 15');
+          //   } else {
+          //     // document.getElementById('app').scrollTop
+          //     // = document.getElementById('app').scrollHeight;
+          //     window.scrollTo(0, (document.body.scrollHeight));
+          //     console.log(document.body.scrollHeight - 428);
+          //     console.log('Over Fifty. Over 15');
+          //   }
+          // } else {
+          //   // const objDiv = document.getElementById('app');
+          //   // objDiv.scrollTop = objDiv.scrollHeight;
+          //   window.scrollTo(0, (document.body.scrollHeight));
+          // }
+
           window.scrollTo(0, (document.body.scrollHeight));
           // setTimeout(pageScroll, 5000); // Change back to 1 from 5000
-          // setTimeout(pageScroll, 1);
           // Interval of 10 secs
           // setInterval(pageScroll, 10000);
 
@@ -90,8 +117,13 @@ export default Vue.extend({
           //   clearTimeout(tes, 100000);
           // }
           // setTimeout(clearer, 1);
+
+          // pageScroll();
         }
-        pageScroll();
+        // Waits for the Mesage to come through
+        setTimeout(pageScroll, 1);
+        // Maybe move pagescroll inside the if statement
+
         // window.scrollTo(0, document.body.scrollHeight);
         // window.scrollTo(0, (document.body.scrollHeight));
       }
