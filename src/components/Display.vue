@@ -32,6 +32,8 @@ export default Vue.extend({
       function pageScroll() {
         window.scrollTo(0, document.body.scrollHeight);
         setTimeout(pageScroll, 1);
+        // Interval of 10 secs
+        // setInterval(pageScroll, 10000);
       }
       pageScroll();
     };

@@ -7,9 +7,7 @@
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <p class="mb-5">
-            This is a livestream application running over radios, with variable fps, resolution,
-            bandwidth and aspect ratio parameters.
-            It uses WebRTC protocols and socket.io to enable scalable real-time video calls.
+            Displays the current link(s) that are being used and the bandwidth of each link.
           </p>
         </div>
       </div>

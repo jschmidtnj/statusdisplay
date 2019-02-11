@@ -31,6 +31,9 @@ const server = ws.createServer((conn) => {
   conn.on('open', () => {
 
   });
+  conn.on('error', () => {
+    console.log("Error Ocurred");
+  });
   // conn.send(JSON.stringify(req.body));
 }).listen(3031);
 
