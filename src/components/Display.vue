@@ -9,6 +9,8 @@
 <script>
 import Vue from 'vue';
 import config from '../config';
+// import { setScheduler } from 'bluebird';
+// import { delay } from 'bluebird';
 
 export default Vue.extend({
   name: 'Display',
@@ -20,7 +22,12 @@ export default Vue.extend({
   created() {
     const url = config.websocketurl;
     const connection = new WebSocket(url);
+    let tester = false;
     connection.onmessage = (event) => {
+      // function scroller() {
+      // }
+      // setTimeout(scroller(), 10000);
+
       console.log(event);
       const message = JSON.parse(event.data);
       console.log(message.log);
@@ -29,13 +36,65 @@ export default Vue.extend({
       if (this.logmessages.length > config.numberElements) {
         this.logmessages.shift();
       }
-      function pageScroll() {
-        window.scrollTo(0, document.body.scrollHeight);
-        setTimeout(pageScroll, 1);
-        // Interval of 10 secs
-        // setInterval(pageScroll, 10000);
+
+      // function pageScroll() {
+      //   window.scrollTo(0, document.body.scrollHeight);
+      //   // setTimeout(pageScroll, 5000); // Change back to 1 from 5000
+      //   setTimeout(pageScroll, 1);
+      //   // Interval of 10 secs
+      //   // setInterval(pageScroll, 10000);
+      // }
+      // pageScroll();
+
+      // const placement = document.getElementById('app');
+      // const placement = document.body.scrollTop;
+
+      // console.log(window.pageYOffset);
+      // console.log(window.screenY);
+      // console.log('Inner Height:');
+      // console.log(window.innerHeight);
+      // console.log('Scroll Height:');
+      // console.log((document.body.scrollHeight - window.innerHeight) - window.pageYOffset);
+      // if ((((document.body.scrollHeight - window.screenY)) - (window.pageYOffset))
+      //   < (window.screenY * 3.3)) {
+      //   console.log('Would Scroll');
+      // }
+
+      if ((document.body.scrollHeight - window.innerHeight) - window.pageYOffset < 100) {
+        console.log('Would Scroll');
+        tester = true;
+      } else {
+        console.log('Would NOT Scroll');
+        tester = false;
+        console.log(tester);
       }
-      pageScroll();
+
+      if (tester) {
+        console.log(tester);
+        // eslint-disable-next-line
+        function pageScroll() {
+          window.scrollTo(0, (document.body.scrollHeight));
+          // setTimeout(pageScroll, 5000); // Change back to 1 from 5000
+          // setTimeout(pageScroll, 1);
+          // Interval of 10 secs
+          // setInterval(pageScroll, 10000);
+
+          // const tim = setTimeout(pageScroll, 1);
+          // function timtime() {
+          //   clearTimeout(tim);
+          // }
+
+          // const tes = setTimeout(pageScroll, 1000);
+          // function clearer() {
+          //   console.log(tes);
+          //   clearTimeout(tes, 100000);
+          // }
+          // setTimeout(clearer, 1);
+        }
+        pageScroll();
+        // window.scrollTo(0, document.body.scrollHeight);
+        // window.scrollTo(0, (document.body.scrollHeight));
+      }
     };
   },
 });
