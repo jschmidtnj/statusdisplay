@@ -22,7 +22,7 @@ export default Vue.extend({
   created() {
     const url = config.websocketurl;
     const connection = new WebSocket(url);
-    let tester = false;
+    // let tester = false;
     // let happen = true;
     connection.onmessage = (event) => {
       // function scroller() {
@@ -66,67 +66,72 @@ export default Vue.extend({
       //   console.log('Would Scroll');
       // }
 
-      if ((document.body.scrollHeight - window.innerHeight) - window.pageYOffset < 100) {
+      function pageScroll() {
+        window.scrollTo(0, (document.body.scrollHeight));
+      }
+
+      if ((document.body.scrollHeight - window.innerHeight) - window.pageYOffset < 0) {
         console.log('Would Scroll');
-        tester = true;
+        // tester = true;
+        setTimeout(pageScroll, 1);
       } else {
         console.log('Would NOT Scroll');
-        tester = false;
+        // tester = false;
         // console.log(tester);
       }
 
       console.log('Scroll Height:');
       console.log(document.body.scrollHeight);
 
-      if (tester) {
-        console.log(tester);
-        // eslint-disable-next-line
-        function pageScroll() {
-          // if (num === config.numberElements) {
-          //   if (happen) {
-          //     // document.getElementById('app').scrollTop
-          //     // = document.getElementById('app').scrollHeight;
-          //     window.scrollTo(0, (document.body.scrollHeight));
-          //     console.log('Over Fifty. On 15');
-          //   } else {
-          //     // document.getElementById('app').scrollTop
-          //     // = document.getElementById('app').scrollHeight;
-          //     window.scrollTo(0, (document.body.scrollHeight));
-          //     console.log(document.body.scrollHeight - 428);
-          //     console.log('Over Fifty. Over 15');
-          //   }
-          // } else {
-          //   // const objDiv = document.getElementById('app');
-          //   // objDiv.scrollTop = objDiv.scrollHeight;
-          //   window.scrollTo(0, (document.body.scrollHeight));
-          // }
+      // if (tester) {
+      //   console.log(tester);
+      //   // eslint-disable-next-line
+      //   function pageScroll() {
+      //     // if (num === config.numberElements) {
+      //     //   if (happen) {
+      //     //     // document.getElementById('app').scrollTop
+      //     //     // = document.getElementById('app').scrollHeight;
+      //     //     window.scrollTo(0, (document.body.scrollHeight));
+      //     //     console.log('Over Fifty. On 15');
+      //     //   } else {
+      //     //     // document.getElementById('app').scrollTop
+      //     //     // = document.getElementById('app').scrollHeight;
+      //     //     window.scrollTo(0, (document.body.scrollHeight));
+      //     //     console.log(document.body.scrollHeight - 428);
+      //     //     console.log('Over Fifty. Over 15');
+      //     //   }
+      //     // } else {
+      //     //   // const objDiv = document.getElementById('app');
+      //     //   // objDiv.scrollTop = objDiv.scrollHeight;
+      //     //   window.scrollTo(0, (document.body.scrollHeight));
+      //     // }
 
-          window.scrollTo(0, (document.body.scrollHeight));
-          // setTimeout(pageScroll, 5000); // Change back to 1 from 5000
-          // Interval of 10 secs
-          // setInterval(pageScroll, 10000);
+      //     window.scrollTo(0, (document.body.scrollHeight));
+      //     // setTimeout(pageScroll, 5000); // Change back to 1 from 5000
+      //     // Interval of 10 secs
+      //     // setInterval(pageScroll, 10000);
 
-          // const tim = setTimeout(pageScroll, 1);
-          // function timtime() {
-          //   clearTimeout(tim);
-          // }
+      //     // const tim = setTimeout(pageScroll, 1);
+      //     // function timtime() {
+      //     //   clearTimeout(tim);
+      //     // }
 
-          // const tes = setTimeout(pageScroll, 1000);
-          // function clearer() {
-          //   console.log(tes);
-          //   clearTimeout(tes, 100000);
-          // }
-          // setTimeout(clearer, 1);
+      //     // const tes = setTimeout(pageScroll, 1000);
+      //     // function clearer() {
+      //     //   console.log(tes);
+      //     //   clearTimeout(tes, 100000);
+      //     // }
+      //     // setTimeout(clearer, 1);
 
-          // pageScroll();
-        }
-        // Waits for the Mesage to come through
-        setTimeout(pageScroll, 1);
-        // Maybe move pagescroll inside the if statement
+      //     // pageScroll();
+      //   }
+      //   // Waits for the Mesage to come through
+      //   setTimeout(pageScroll, 1);
 
-        // window.scrollTo(0, document.body.scrollHeight);
-        // window.scrollTo(0, (document.body.scrollHeight));
-      }
+      //   // Maybe move pagescroll inside the if statement
+      //   // window.scrollTo(0, document.body.scrollHeight);
+      //   // window.scrollTo(0, (document.body.scrollHeight));
+      // }
     };
   },
 });
