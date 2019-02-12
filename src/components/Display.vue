@@ -70,12 +70,14 @@ export default Vue.extend({
         window.scrollTo(0, (document.body.scrollHeight));
       }
 
+      // This Number can be changed to reflect the amount of maximum scroll up that
+      // still initiates an automatic scroll down
       if ((document.body.scrollHeight - window.innerHeight) - window.pageYOffset < 0) {
-        console.log('Would Scroll');
+        console.log('Will Scroll');
         // tester = true;
         setTimeout(pageScroll, 1);
       } else {
-        console.log('Would NOT Scroll');
+        console.log('Will NOT Scroll');
         // tester = false;
         // console.log(tester);
       }
