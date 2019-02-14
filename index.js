@@ -39,10 +39,33 @@ const server = ws.createServer((conn) => {
 
 // Allows posts to this Node server from places like ANTXLinkServer
 app.post('/test', (req, res) => {
+  // logs in the npm run start console
   console.log(JSON.stringify(req.body));
+  console.log(req.headers);
+
+  // Remove Below
+  // const time = +new Date(); // Should be a string timestamp
+  // console.log("Time:");
+  // console.log(time.valueOf());
+  // console.log(time);
+  // console.log(event);
+
+  // Uncomment the three below if trying to add the JSON with the host
+  // var statement = JSON.stringify(req.body).substring(0, (JSON.stringify(req.body).length-1)) + ',';
+  // statement += JSON.stringify(req.headers).substring(1, (JSON.stringify(req.headers).length));
+  // console.log(statement);
+
   res.send(JSON.stringify(req.body));
+  // res.send(JSON.stringify(req.headers));
   server.connections.forEach((connection) => {
+    //Sends to the Display.vue
     connection.sendText(JSON.stringify(req.body));
+
+    // Uncomment the one below if trying to add the JSON with the host
+    // connection.sendText(JSON.stringify(statement));
+
+    //This will send another message - Could instead append the two JSONs into one
+    // connection.sendText(JSON.stringify(req.headers));
   });
 
   // connection.sendText(JSON.stringify(req.body));
