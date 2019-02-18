@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-navbar type="dark" variant="primary" toggleable fixed="top">
+      <!-- class="nav" -->
       <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
       <b-collapse is-nav id="nav_dropdown_collapse">
         <b-navbar-nav>
@@ -23,4 +24,8 @@ export default {
   .title {
     text-align: center;
   }
+  /* .nav {
+    background-color: aliceblue;
+    color: aliceblue;
+  } */
 </style>

@@ -21,7 +21,7 @@ export default {
 <style lang="scss">
 /* Uncomment to start dark theme */
 //  html, body {
-//    background-color: black;
+//    background-color: rgb(18, 18, 18);
 //  }
 
 #app {
@@ -34,8 +34,8 @@ export default {
   color: #2c3e50;
 
   /* Uncomment to start dark theme AND look at Display.vue*/
-  // color: white;
-  // background-color: black;
+  // color: rgb(230, 230, 230);
+  // background-color: rgb(18, 18, 18);
 
   margin-top: 60px;
 }
