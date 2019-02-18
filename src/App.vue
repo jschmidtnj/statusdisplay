@@ -33,8 +33,9 @@ export default {
   /* Comment to start dark theme */
   color: #2c3e50;
 
-  /* Uncomment to start dark theme */
+  /* Uncomment to start dark theme AND look at Display.vue*/
   // color: white;
+  // background-color: black;
 
   margin-top: 60px;
 }

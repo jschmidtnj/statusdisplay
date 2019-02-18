@@ -41,6 +41,7 @@ const server = ws.createServer((conn) => {
 app.post('/test', (req, res) => {
   // logs in the npm run start console
   console.log(JSON.stringify(req.body));
+  // The header contains important information about the IPAddresses that will change in the demo
   console.log(req.headers);
 
   // Remove Below
